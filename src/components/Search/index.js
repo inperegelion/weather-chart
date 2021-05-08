@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
+import CityContext from "../../contexts/CityContext";
 
-export default (props) => {
-  let [text, setText] = useState("");
+const Search = () => {
+  const { city, setCity } = useContext(CityContext);
 
-  return <input type="text" onChange={(ev) => setText(ev.target.value)} />;
+  return (
+    <input
+      type="text"
+      value={city}
+      onChange={(ev) => setCity(ev.target.value)}
+    />
+  );
 };
+export default Search;
