@@ -14,6 +14,7 @@ export default async function getForecast(city) {
         temperature: kelvinToCelsius(item.main.temp),
         time: item.dt,
         timeText: item.dt_txt,
+        timeHours: item.dt_txt.slice(11, -3),
       }))
     : null;
 }

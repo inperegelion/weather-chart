@@ -48,19 +48,24 @@ const Chart = (props) => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="time" />
+      <XAxis dataKey="timeHours" />
       <YAxis />
       <Tooltip />
       <Legend verticalAlign="top" wrapperStyle={{ lineHeight: "40px" }} />
       <ReferenceLine y={0} stroke="#000" />
       <Brush dataKey="time" height={30} stroke="#8884d8" />
       <Bar dataKey="temperature" fill="#8884d8" />
-      {/* <Bar dataKey="uv" fill="#82ca9d" /> */}
     </BarChart>
   );
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <h3>Forecast for {city}</h3>
       {renderContent()}
     </div>
