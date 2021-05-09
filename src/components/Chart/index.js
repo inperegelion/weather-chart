@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -17,7 +18,7 @@ const Chart = (props) => {
   let [data, setData] = useState();
   let [isLoading, setisLoading] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => {    
     async function getDataset() {
       setisLoading(true);
       let dataSet = await getForecast(city);
@@ -45,8 +46,7 @@ const Chart = (props) => {
         right: 30,
         left: 20,
         bottom: 5,
-      }}
-    >
+      }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="timeHours" />
       <YAxis />
@@ -64,12 +64,14 @@ const Chart = (props) => {
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-      }}
-    >
+      }}>
       <h3>Forecast for {city}</h3>
       {renderContent()}
     </div>
   );
 };
 
+Chart.propTypes = {
+  city: PropTypes.array,
+};
 export default Chart;
