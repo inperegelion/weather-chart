@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setCity } from "../../redux";
+import { setCity } from "../../redux/actions/forecastActions";
 
 const Search = () => {
   const dispatch = useDispatch();
